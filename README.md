@@ -1,30 +1,14 @@
-![CF](http://i.imgur.com/7v5ASc8.png) Make Branches
-===
+# tai
+a tool for managing student assignment repos
 
-Quickly add a list of students as branches to a repo. 
+## demo
+### setup
+to configure tai
+`tai config [github_organization] [github_token]`
 
-Modify `students-or-teams.js` to the list of student or team
-branches you want to create.
+### run
+to create unique branch for each team and set up travis_token
+`tai setup [repo_name]`
 
-Use like:
-
-```sh
-> node . ../assignment-repo
-```
-
-```env
-GITHUB_TOKEN=<github token>
-GITHUB_ORGANIZATION=<github org>
-TRAVIS_TOKEN=<travis token>
-```
-
-
-blacklist master on travis
-
-shopt -s extglob dotglob
-mkdir DonChatelain
-mv ./!(DonChatelain|.git|LAB.md) ./DonChatelain/
-git add .
-git commit -m 'move student work to DonChatelain'
-git checkout master
-git merge DonChatelain
+to merge team branches into unique folders in master
+`tai close [repo_name]`
